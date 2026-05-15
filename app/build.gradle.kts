@@ -1,7 +1,16 @@
+import java.util.Properties
+import kotlin.apply
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
+
+val properties =
+    Properties().apply {
+        load(project.rootProject.file("local.properties").inputStream())
+    }
 
 android {
     namespace = "org.sopt.soptkathon_android_2"
@@ -19,6 +28,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", properties["base.url"].toString())
     }
 
     buildTypes {
@@ -36,23 +46,41 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    // --- Android Core & Lifecycle ---
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // --- Compose (UI) ---
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.navigation)
+
+    // --- Image ---
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
+
+    // --- Network ---
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp.logging)
+
+    // --- Testing ---
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }

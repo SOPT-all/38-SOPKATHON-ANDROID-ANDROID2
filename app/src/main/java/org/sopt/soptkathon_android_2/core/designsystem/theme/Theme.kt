@@ -1,6 +1,5 @@
-package org.sopt.soptkathon_android_2.ui.theme
+package org.sopt.soptkathon_android_2.core.designsystem.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package org.sopt.soptkathon_android_2.ui.theme
+package org.sopt.soptkathon_android_2.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

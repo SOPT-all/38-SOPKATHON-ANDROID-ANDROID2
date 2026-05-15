@@ -1,4 +1,4 @@
-package org.sopt.soptkathon_android_2
+package org.sopt.soptkathon_android_2.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import org.sopt.soptkathon_android_2.ui.theme.Soptkathon_android_2Theme
+import org.sopt.soptkathon_android_2.core.designsystem.theme.Soptkathon_android_2Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

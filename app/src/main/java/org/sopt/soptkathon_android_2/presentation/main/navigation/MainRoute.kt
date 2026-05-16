@@ -10,6 +10,9 @@ data object Splash: Route
 data object Onboarding: Route
 
 @Serializable
+data object Dubti: Route
+
+@Serializable
 data object Doyeon: Route
 
 @Serializable

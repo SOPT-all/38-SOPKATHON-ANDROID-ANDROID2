@@ -12,6 +12,10 @@ fun NavController.navigateToOnboarding() {
     navigate(Onboarding)
 }
 
+fun NavController.navigateToDubti() {
+    navigate(Dubti)
+}
+
 fun NavController.navigateToDoyeon() {
     navigate(Doyeon)
 }

@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import org.sopt.soptkathon_android_2.presentation.doyeon.DoyeonRoute
+import org.sopt.soptkathon_android_2.presentation.dubti.DubtiRoute
 import org.sopt.soptkathon_android_2.presentation.jiyoung.JiyoungRoute
 import org.sopt.soptkathon_android_2.presentation.onboarding.OnboardingRoute
 import org.sopt.soptkathon_android_2.presentation.splash.SplashScreen
@@ -39,7 +40,14 @@ fun MainNavHost(
 
         composable<Onboarding> {
             OnboardingRoute(
-                navigateToDubti = {},
+                navigateToDubti = navigator.navController::navigateToDubti,
+                modifier = Modifier.padding(paddingValues),
+            )
+        }
+
+        composable<Dubti> {
+            DubtiRoute(
+                navigateToDoyeon = navigator.navController::navigateToDoyeon,
                 modifier = Modifier.padding(paddingValues),
             )
         }

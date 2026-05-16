@@ -94,12 +94,12 @@ private fun OnboardingScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(30.dp),
                 ) {
-                    Image(
-                        painter = painterResource(imageRes),
-                        contentDescription = null,
-                        modifier = Modifier,
-                        contentScale = ContentScale.Fit,
-                    )
+//                    Image(
+//                        painter = painterResource(imageRes),
+//                        contentDescription = null,
+//                        modifier = Modifier,
+//                        contentScale = ContentScale.Fit,
+//                    )
 
                     Text(
                         text = title,

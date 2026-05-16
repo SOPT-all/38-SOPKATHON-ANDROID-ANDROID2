@@ -1,16 +1,26 @@
 package org.sopt.soptkathon_android_2.presentation.dubti
 
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.StartOffset
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -142,13 +152,55 @@ private fun DubtiLoadingScreen(
 
         Spacer(Modifier.height(27.dp))
 
+        BouncingDots()
+
+        Spacer(Modifier.weight(185f))
+    }
+}
+
+@Composable
+fun BouncingDots() {
+    val dots = 3
+    val delayPerDot = 150
+
+    val offsets = List(dots) { index ->
+        val infiniteTransition = rememberInfiniteTransition(label = "dot_$index")
+        infiniteTransition.animateFloat(
+            initialValue = 0f,
+            targetValue = -6f,
+            animationSpec = infiniteRepeatable(
+                animation = keyframes {
+                    durationMillis = 1200
+                    0f at 0
+                    -6f at 400
+                    0f at 800
+                    0f at 1200
+                },
+                repeatMode = RepeatMode.Restart,
+                initialStartOffset = StartOffset(delayPerDot * index)
+            ),
+            label = "offset_$index"
+        )
+    }
+
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
         Text(
-            text = "진단 중 •••",
+            text = "진단 중",
             color = SoptkathonTheme.colors.gray1000,
             style = SoptkathonTheme.typography.t2Bold,
         )
 
-        Spacer(Modifier.weight(185f))
+        offsets.forEach { offset ->
+            Box(
+                modifier = Modifier
+                    .offset(y = offset.value.dp)
+                    .size(3.dp)
+                    .background(SoptkathonTheme.colors.gray1000, CircleShape),
+            )
+        }
     }
 }
 

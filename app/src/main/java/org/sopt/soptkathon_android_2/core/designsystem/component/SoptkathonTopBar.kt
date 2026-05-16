@@ -21,6 +21,7 @@ fun SoptkathonTopBar(
     modifier: Modifier = Modifier,
     title: String = "",
     onBackClick: () -> Unit = {},
+    iconColor: Color = Color.Unspecified,
 ) {
     Box(
         modifier = modifier
@@ -33,12 +34,12 @@ fun SoptkathonTopBar(
             modifier = Modifier
                 .noRippleClickable(onBackClick)
                 .padding(all = 8.dp),
-            tint = Color.Unspecified,
+            tint = iconColor,
         )
 
         if (title.isNotEmpty()) {
             Text(
-                text = "title",
+                text = title,
                 modifier = Modifier.align(Alignment.Center),
                 color = SoptkathonTheme.colors.gray1000,
                 style = SoptkathonTheme.typography.b2Medium,

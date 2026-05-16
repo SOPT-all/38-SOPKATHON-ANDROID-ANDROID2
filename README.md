@@ -1,8 +1,8 @@
 # 🐰 38th Sopkathon Android 2팀
 
 ## 서비스 이름 및 간단한 소개
-`서비스명` 두나우 <br>
-`한 줄 소개` 블라블라 
+`서비스명` 두나우! <br>
+`한 줄 소개` 은둔 청년이 비슷한 속도의 사람들과 작은 미션을 수행하며, 두더지처럼 천천히 세상 밖으로 나오는 대면 연결 플랫폼
 
 <br>
 
@@ -11,11 +11,16 @@
 | 👑전도연<br/>([@doyeon0307](https://github.com/doyeon0307)) | 박지영<br/>([@jiyoung2ee](https://github.com/jiyoung2ee)) | 이예림<br/>([@yerim0829](https://github.com/yerim0829)) |
 |:--:|:--:|:--:|
 | <img width="200px" src="https://avatars.githubusercontent.com/u/108921606"/> | <img width="200px" src="https://avatars.githubusercontent.com/u/271156587"/> | <img width="200px" src="https://avatars.githubusercontent.com/u/180763262"/> |
-| `기능1` | `기능2` | `기능3` |
+| `두비티아이` `홈` | `유형결과` | `그룹` `미션` |
 
 <br>
 
 ## 주요기능
+1. 두비티아이 : 사용자의 두더지 유형을 검사합니다.
+2. 그룹 매칭 : 사용자 유형과 유사한 유저를 매칭합니다.
+3. 미션 : 사용자가 세상 밖에 나올 수 있는 미션을 수행합니다.
+
+<br>
 
 ## 기술 스택
 | **카테고리** | **기술/라이브러리** |

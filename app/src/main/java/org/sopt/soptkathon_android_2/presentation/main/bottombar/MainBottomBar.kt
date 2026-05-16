@@ -27,7 +27,7 @@ import org.sopt.soptkathon_android_2.core.util.noRippleClickable
 @Composable
 fun MainBottomBar(
     currentTab: MainTab?,
-    onTabSelected: (MainTab) -> Unit,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -39,7 +39,7 @@ fun MainBottomBar(
         MainTab.entries.forEach { tab ->
             MainNavigationBarItem(
                 tab = tab,
-                onClick = { onTabSelected(tab) },
+                onClick = onClick,
                 selected = tab == currentTab,
                 modifier = Modifier.weight(1f),
             )
@@ -89,7 +89,7 @@ private fun MainBottomBarPreview() {
         ) {
             MainBottomBar(
                 currentTab = MainTab.HOME,
-                onTabSelected = {},
+                onClick = {},
             )
         }
     }

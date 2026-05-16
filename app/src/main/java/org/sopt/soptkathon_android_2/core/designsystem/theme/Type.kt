@@ -52,98 +52,98 @@ private fun soptkathonTextStyle(
 
 @Immutable
 data class SoptkathonTypography(
-    val h1_medium: TextStyle,
-    val h1_bold: TextStyle,
+    val h1Medium: TextStyle,
+    val h1Bold: TextStyle,
 
-    val t1_bold: TextStyle,
-    val t2_bold: TextStyle,
-    val t2_medium: TextStyle,
+    val t1Bold: TextStyle,
+    val t2Bold: TextStyle,
+    val t2Medium: TextStyle,
 
-    val b1_bold: TextStyle,
-    val b1_medium: TextStyle,
-    val b2_bold: TextStyle,
-    val b2_medium: TextStyle,
-    val c1_bold: TextStyle,
-    val c1_medium: TextStyle,
+    val b1Bold: TextStyle,
+    val b1Medium: TextStyle,
+    val b2Bold: TextStyle,
+    val b2Medium: TextStyle,
+    val c1Bold: TextStyle,
+    val c1Medium: TextStyle,
 )
 
 val defaultSoptkathonTypography = SoptkathonTypography(
-    h1_medium = soptkathonTextStyle(
+    h1Medium = soptkathonTextStyle(
         fontFamily = SoptkathonFont.medium,
         weight = FontWeight.Medium,
         size = 48.sp,
         lineHeight = 1.4.em,
         letterSpacing = 0.em,
     ),
-    h1_bold = soptkathonTextStyle(
+    h1Bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
         size = 26.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    t1_bold = soptkathonTextStyle(
+    t1Bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
         size = 22.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    t2_bold = soptkathonTextStyle(
+    t2Bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
         size = 18.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    t2_medium = soptkathonTextStyle(
+    t2Medium = soptkathonTextStyle(
         fontFamily = SoptkathonFont.medium,
         weight = FontWeight.Medium,
         size = 18.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    b1_bold = soptkathonTextStyle(
+    b1Bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
         size = 16.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    b1_medium = soptkathonTextStyle(
+    b1Medium = soptkathonTextStyle(
         fontFamily = SoptkathonFont.medium,
         weight = FontWeight.Medium,
         size = 16.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    b2_bold = soptkathonTextStyle(
+    b2Bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
         size = 14.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    b2_medium = soptkathonTextStyle(
+    b2Medium = soptkathonTextStyle(
         fontFamily = SoptkathonFont.medium,
         weight = FontWeight.Medium,
         size = 14.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    c1_bold = soptkathonTextStyle(
+    c1Bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
         size = 12.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
-    c1_medium = soptkathonTextStyle(
+    c1Medium = soptkathonTextStyle(
         fontFamily = SoptkathonFont.medium,
         weight = FontWeight.Medium,
         size = 12.sp,
         lineHeight = 1.4.em,
-        letterSpacing = (-0.02).em,
+        letterSpacing = 0.em,
     ),
 )
 
@@ -153,17 +153,17 @@ val LocalSoptkathonTypography = staticCompositionLocalOf { defaultSoptkathonTypo
 @Composable
 private fun SoptkathonTypographyPreview() {
     val typography = listOf(
-        defaultSoptkathonTypography.h1_medium,
-        defaultSoptkathonTypography.h1_bold,
-        defaultSoptkathonTypography.t1_bold,
-        defaultSoptkathonTypography.t2_bold,
-        defaultSoptkathonTypography.t2_medium,
-        defaultSoptkathonTypography.b1_bold,
-        defaultSoptkathonTypography.b1_medium,
-        defaultSoptkathonTypography.b2_bold,
-        defaultSoptkathonTypography.b2_medium,
-        defaultSoptkathonTypography.c1_bold,
-        defaultSoptkathonTypography.c1_medium,
+        defaultSoptkathonTypography.h1Medium,
+        defaultSoptkathonTypography.h1Bold,
+        defaultSoptkathonTypography.t1Bold,
+        defaultSoptkathonTypography.t2Bold,
+        defaultSoptkathonTypography.t2Medium,
+        defaultSoptkathonTypography.b1Bold,
+        defaultSoptkathonTypography.b1Medium,
+        defaultSoptkathonTypography.b2Bold,
+        defaultSoptkathonTypography.b2Medium,
+        defaultSoptkathonTypography.c1Bold,
+        defaultSoptkathonTypography.c1Medium,
     )
 
     Column(

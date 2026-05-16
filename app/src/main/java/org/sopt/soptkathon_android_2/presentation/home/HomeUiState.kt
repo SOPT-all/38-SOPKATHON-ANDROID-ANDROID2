@@ -1,5 +1,6 @@
 package org.sopt.soptkathon_android_2.presentation.home
 
+import org.sopt.soptkathon_android_2.R
 import org.sopt.soptkathon_android_2.data.dto.response.MissionDto
 
 data class  HomeUiState(
@@ -9,4 +10,8 @@ data class  HomeUiState(
     val missions: List<MissionDto> = emptyList(),
 ) {
     val fraction = movedDistance / 100f
+    val imageRes = when (level) {
+        1 -> R.drawable.img_home_level1
+        else -> R.drawable.img_home_level2
+    }
 }

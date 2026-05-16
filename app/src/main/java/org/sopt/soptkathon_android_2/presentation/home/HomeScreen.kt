@@ -98,13 +98,13 @@ private fun HomeScreen(
                 )
 
                 Text(
-                    text = "굴 속에 숨은\n두더지",
+                    text = "틈새도전형\n두더지",
                     color = Color(0xFFFFFDF2),
                     style = SoptkathonTheme.typography.h1Bold.copy(fontSize = 26.sp),
                 )
 
                 Image(
-                    painter = painterResource(R.drawable.img_home_level1),
+                    painter = painterResource(uiState.imageRes),
                     contentDescription = null,
                     modifier = Modifier
                         .size(140.dp)

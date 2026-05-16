@@ -36,7 +36,7 @@ fun MainNavHost(
     ) {
         composable<Splash> {
             SplashScreen(
-                navigateToOnboarding = navigator.navController::navigateToOnboarding,
+                navigateToOnboarding = navigator.navController::navigateToDubti,
             )
         }
 
@@ -63,14 +63,14 @@ fun MainNavHost(
 
         composable<Jiyoung> {
             JiyoungRoute(
-                navigateToYerim = navigator.navController::navigateToYerim,
+                navigateToHome = navigator.navController::navigateToHome,
                 modifier = Modifier.padding(paddingValues),
             )
         }
 
         composable<Yerim> {
             YerimRoute(
-                navigateToDoyeon = navigator.navController::navigateToDoyeon,
+                navigateToDoyeon = navigator.navController::navigateToJiyoung,
                 modifier = Modifier.padding(paddingValues),
             )
         }

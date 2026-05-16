@@ -13,7 +13,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun JiyoungRoute(
-    navigateToYerim: () -> Unit,
+    navigateToHome: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: JiyoungViewModel = viewModel(),
 ) {
@@ -21,7 +21,7 @@ fun JiyoungRoute(
 
     JiyoungScreen(
         uiState = uiState,
-        navigateToYerim = navigateToYerim,
+        navigateToHome = navigateToHome,
         modifier = modifier,
     )
 }
@@ -29,7 +29,7 @@ fun JiyoungRoute(
 @Composable
 private fun JiyoungScreen(
     uiState: JiyoungUiState,
-    navigateToYerim: () -> Unit,
+    navigateToHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -38,7 +38,7 @@ private fun JiyoungScreen(
     ) {
         Text(
             text = "Jiyoung",
-            modifier = Modifier.clickable { navigateToYerim() }
+            modifier = Modifier.clickable { navigateToHome() }
         )
     }
 }

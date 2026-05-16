@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import org.sopt.soptkathon_android_2.presentation.doyeon.DoyeonRoute
 import org.sopt.soptkathon_android_2.presentation.jiyoung.JiyoungRoute
+import org.sopt.soptkathon_android_2.presentation.onboarding.OnboardingRoute
 import org.sopt.soptkathon_android_2.presentation.splash.SplashScreen
 import org.sopt.soptkathon_android_2.presentation.yerim.YerimRoute
 
@@ -23,7 +24,7 @@ fun MainNavHost(
 ) {
     NavHost(
         navController = navigator.navController,
-        startDestination = Doyeon,
+        startDestination = Splash,
         modifier = modifier.fillMaxSize(),
         enterTransition = { fadeIn(tween(160)) },
         exitTransition = { fadeOut(tween(160)) },
@@ -32,7 +33,14 @@ fun MainNavHost(
     ) {
         composable<Splash> {
             SplashScreen(
-                navigateToOnboarding = {},
+                navigateToOnboarding = navigator.navController::navigateToOnboarding,
+            )
+        }
+
+        composable<Onboarding> {
+            OnboardingRoute(
+                navigateToDubti = {},
+                modifier = Modifier.padding(paddingValues),
             )
         }
 

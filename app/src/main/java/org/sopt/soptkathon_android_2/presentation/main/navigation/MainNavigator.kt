@@ -8,6 +8,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
+fun NavController.navigateToOnboarding() {
+    navigate(Onboarding)
+}
+
 fun NavController.navigateToDoyeon() {
     navigate(Doyeon)
 }

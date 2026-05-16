@@ -28,6 +28,18 @@ fun NavController.navigateToYerim() {
     navigate(Yerim)
 }
 
+fun NavController.navigateToHome() {
+    navigate(Home)
+}
+
+fun NavController.navigateToMission() {
+    navigate(Mission)
+}
+
+fun NavController.navigateToMissionDetail() {
+    navigate(MissionDetail)
+}
+
 class MainNavigator(
     val navController: NavHostController,
 ) {

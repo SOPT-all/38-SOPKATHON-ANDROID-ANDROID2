@@ -1,10 +1,8 @@
 package org.sopt.soptkathon_android_2.presentation.dubti.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,40 +12,38 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import org.sopt.soptkathon_android_2.R
+import org.sopt.soptkathon_android_2.core.designsystem.theme.SoptkathonTheme
 
 @Composable
 fun DubtiTopBar(
-    pageCount: Int,
     modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.White),
+            .padding(all = 4.dp),
     ) {
-//        Icon(
-//            imageVector = ImageVector.vectorResource(),
-//            contentDescription = null,
-//            tint = Color.Unspecified,
-//        )
+        Icon(
+            imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_chevron_left_24),
+            contentDescription = null,
+            modifier = Modifier.padding(all = 8.dp),
+            tint = Color.Unspecified,
+        )
 
-        Column(
+
+        Text(
+            text = "두비티아이",
             modifier = Modifier.align(Alignment.Center),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ){
-            Text(
-                text = "두비티아이",
-            )
-
-            Text(
-                text = "$pageCount/3",
-            )
-        }
+            color = SoptkathonTheme.colors.gray1000,
+            style = SoptkathonTheme.typography.b2Medium,
+        )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun DubtiTopBarPreview() {
-    DubtiTopBar(1)
+    DubtiTopBar()
 }

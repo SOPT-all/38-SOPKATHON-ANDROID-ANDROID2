@@ -62,9 +62,7 @@ private fun DubtiScreen(
     Column(
         modifier = modifier.fillMaxSize(),
     ) {
-        DubtiTopBar(
-            pageCount = uiState.pageCount,
-        )
+        DubtiTopBar()
 
         DubtiProgressbar(
             pageCount = uiState.pageCount,

@@ -24,15 +24,15 @@ fun DubtiQuestionSection(
         )
 
         DubtiButton(
-            answer = "a",
+            answer = "A",
             content = aContent,
-            onClick = { onClick("a") },
+            onClick = { onClick("A") },
         )
 
         DubtiButton(
-            answer = "b",
+            answer = "B",
             content = bContent,
-            onClick = { onClick("b") },
+            onClick = { onClick("B") },
         )
     }
 }

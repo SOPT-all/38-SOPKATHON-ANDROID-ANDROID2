@@ -4,6 +4,15 @@ import kotlinx.serialization.Serializable
 import org.sopt.soptkathon_android_2.core.navigation.Route
 
 @Serializable
+data object Home: Route
+@Serializable
+data object Group: Route
+
+@Serializable
+data object Mission: Route
+
+
+@Serializable
 data object Splash: Route
 
 @Serializable

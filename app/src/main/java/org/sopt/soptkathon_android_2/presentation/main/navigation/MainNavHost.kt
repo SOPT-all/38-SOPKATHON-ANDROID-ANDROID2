@@ -15,6 +15,7 @@ import org.sopt.soptkathon_android_2.presentation.dubti.DubtiRoute
 import org.sopt.soptkathon_android_2.presentation.home.HomeRoute
 import org.sopt.soptkathon_android_2.presentation.jiyoung.JiyoungRoute
 import org.sopt.soptkathon_android_2.presentation.mission.MissionRoute
+import org.sopt.soptkathon_android_2.presentation.missiondetail.MissionDetailRoute
 import org.sopt.soptkathon_android_2.presentation.onboarding.OnboardingRoute
 import org.sopt.soptkathon_android_2.presentation.splash.SplashScreen
 import org.sopt.soptkathon_android_2.presentation.yerim.YerimRoute
@@ -83,6 +84,13 @@ fun MainNavHost(
         
         composable<Mission> {
             MissionRoute(
+                navigateToHome = navigator.navController::navigateToHome,
+                modifier = Modifier.padding(paddingValues),
+            )
+        }
+
+        composable<MissionDetail> {
+            MissionDetailRoute(
                 navigateToHome = navigator.navController::navigateToHome,
                 modifier = Modifier.padding(paddingValues),
             )

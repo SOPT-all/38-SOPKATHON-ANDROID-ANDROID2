@@ -68,6 +68,7 @@ dependencies {
     // --- Image ---
     implementation(libs.coil.compose)
     implementation(libs.coil.network)
+    implementation("io.coil-kt.coil3:coil-gif:3.4.0")
 
     // --- Network ---
     implementation(libs.kotlinx.serialization.json)

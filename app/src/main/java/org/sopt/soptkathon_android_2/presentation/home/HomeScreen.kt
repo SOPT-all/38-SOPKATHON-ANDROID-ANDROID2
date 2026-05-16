@@ -23,6 +23,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -46,6 +47,10 @@ fun HomeRoute(
     viewModel: HomeViewModel = viewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(Unit) {
+        viewModel.initScreen()
+    }
 
     HomeScreen(
         uiState = uiState,
@@ -93,13 +98,13 @@ private fun HomeScreen(
                 )
 
                 Text(
-                    text = "굴 속에 숨은\n두더지",
+                    text = "틈새도전형\n두더지",
                     color = Color(0xFFFFFDF2),
                     style = SoptkathonTheme.typography.h1Bold.copy(fontSize = 26.sp),
                 )
 
                 Image(
-                    painter = painterResource(R.drawable.img_home_level1),
+                    painter = painterResource(uiState.imageRes),
                     contentDescription = null,
                     modifier = Modifier
                         .size(140.dp)
@@ -109,7 +114,7 @@ private fun HomeScreen(
                 Spacer(Modifier.height(10.dp))
 
                 Text(
-                    text = "Lv.1",
+                    text = "Lv.${uiState.level}",
                     modifier = Modifier
                         .background(
                             color = Color(0xFFFBF199),
@@ -133,7 +138,7 @@ private fun HomeScreen(
                 ) {
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth(fraction = 0.7f)
+                            .fillMaxWidth(fraction = uiState.fraction)
                             .height(4.dp)
                             .background(
                                 color = Color(0xFFFBF199),
@@ -154,7 +159,7 @@ private fun HomeScreen(
                     Spacer(Modifier.width(4.dp))
 
                     Text(
-                        text = "7개",
+                        text = "9개",
                         color = Color(0xFFFBF199),
                         style = SoptkathonTheme.typography.c1Bold,
                     )
@@ -170,7 +175,7 @@ private fun HomeScreen(
                     Spacer(Modifier.width(4.dp))
 
                     Text(
-                        text = "70m",
+                        text = "${uiState.movedDistance}m",
                         color = Color(0xFFFBF199),
                         style = SoptkathonTheme.typography.c1Bold,
                     )
@@ -208,7 +213,7 @@ private fun HomeScreen(
                     )
 
                     Text(
-                        text = "4개",
+                        text = "${uiState.missionCompletedCount}개",
                         color = SoptkathonTheme.colors.gray500,
                         style = SoptkathonTheme.typography.b2Bold,
                     )
@@ -216,53 +221,59 @@ private fun HomeScreen(
 
                 Spacer(Modifier.height(16.dp))
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .border(
-                            width = 1.dp,
-                            color = SoptkathonTheme.colors.gray50,
-                            shape = RoundedCornerShape(12.dp)
-                        )
-                        .padding(horizontal = 16.dp, vertical = 14.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Column {
-                        Text(
-                            text = "하늘 사진 찍기",
-                            color = SoptkathonTheme.colors.gray500,
-                            style = SoptkathonTheme.typography.b2Medium,
-                        )
-
+                    uiState.missions.forEach {dto ->
                         Row(
-                            horizontalArrangement = Arrangement.spacedBy(2.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .border(
+                                    width = 1.dp,
+                                    color = SoptkathonTheme.colors.gray50,
+                                    shape = RoundedCornerShape(12.dp)
+                                )
+                                .padding(horizontal = 16.dp, vertical = 14.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            Text(
-                                text = "오늘",
-                                color = SoptkathonTheme.colors.gray200,
-                                style = SoptkathonTheme.typography.c1Medium,
-                            )
+                            Column {
+                                Text(
+                                    text = dto.description,
+                                    color = SoptkathonTheme.colors.gray500,
+                                    style = SoptkathonTheme.typography.b2Medium,
+                                )
 
-                            Text(
-                                text = "18:20",
-                                color = SoptkathonTheme.colors.gray200,
-                                style = SoptkathonTheme.typography.c1Medium,
-                            )
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(2.dp)
+                                ) {
+                                    Text(
+                                        text = "오늘",
+                                        color = SoptkathonTheme.colors.gray200,
+                                        style = SoptkathonTheme.typography.c1Medium,
+                                    )
 
-                            Text(
-                                text = "완료",
-                                color = SoptkathonTheme.colors.gray200,
-                                style = SoptkathonTheme.typography.c1Medium,
+                                    Text(
+                                        text = dto.completedAt,
+                                        color = SoptkathonTheme.colors.gray200,
+                                        style = SoptkathonTheme.typography.c1Medium,
+                                    )
+
+                                    Text(
+                                        text = "완료",
+                                        color = SoptkathonTheme.colors.gray200,
+                                        style = SoptkathonTheme.typography.c1Medium,
+                                    )
+                                }
+                            }
+
+                            Icon(
+                                painter = painterResource(R.drawable.img_circle_check),
+                                contentDescription = null,
+                                modifier = Modifier.size(24.dp),
                             )
                         }
                     }
-
-                    Icon(
-                        painter = painterResource(R.drawable.img_circle_check),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp),
-                    )
                 }
             }
         }

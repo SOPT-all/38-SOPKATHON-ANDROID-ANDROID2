@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.sopt.soptkathon_android_2.data.di.ServiceModule
+import org.sopt.soptkathon_android_2.data.dto.request.HomeRequestDto
 
 class MissionDetailViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(MissionDetailUiState())
@@ -21,7 +22,7 @@ class MissionDetailViewModel : ViewModel() {
     fun onComplete() {
         viewModelScope.launch {
             runCatching {
-                ServiceModule.apiService.postMission(1)
+                ServiceModule.apiService.postMission(1, HomeRequestDto(1))
             }
                 .onSuccess {
                     Log.d("onComplete", "미션 성공")

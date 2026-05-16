@@ -63,11 +63,17 @@ private fun HomeScreen(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         bottomBar = {
-            MainBottomBar(
-                currentTab = MainTab.HOME,
-                onClick = navigateToMission,
-                modifier = Modifier.navigationBarsPadding()
-            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.White)
+            ) {
+                MainBottomBar(
+                    currentTab = MainTab.HOME,
+                    onClick = navigateToMission,
+                    modifier = Modifier.navigationBarsPadding()
+                )
+            }
         }
     ) { innerPadding ->
         Column(

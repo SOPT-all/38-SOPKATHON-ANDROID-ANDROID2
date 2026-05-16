@@ -12,11 +12,6 @@ enum class MainTab(
     val label: String,
     val route: Route,
 ) {
-    GROUP(
-        iconRes = R.drawable.ic_bottombar_user,
-        label = "그룹",
-        route = Group,
-    ),
     HOME(
         iconRes = R.drawable.ic_bottombar_home,
         label = "홈",
@@ -26,5 +21,15 @@ enum class MainTab(
         iconRes = R.drawable.ic_bottombar_star,
         label = "미션",
         route = Mission,
+    ),
+    GROUP(
+        iconRes = R.drawable.ic_bottombar_user,
+        label = "그룹",
+        route = Group,
+    ),
+    SETTING(
+        iconRes = R.drawable.ic_bottombar_settings,
+        label = "설정",
+        route = Group,
     )
 }

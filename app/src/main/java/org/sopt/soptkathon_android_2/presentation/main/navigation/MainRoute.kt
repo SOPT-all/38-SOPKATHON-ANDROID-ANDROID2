@@ -9,8 +9,13 @@ data object Home: Route
 data object Group: Route
 
 @Serializable
+data object Setting: Route
+
+@Serializable
 data object Mission: Route
 
+@Serializable
+data object MissionDetail: Route
 
 @Serializable
 data object Splash: Route

@@ -52,6 +52,7 @@ private fun soptkathonTextStyle(
 
 @Immutable
 data class SoptkathonTypography(
+    val h1_medium: TextStyle,
     val h1_bold: TextStyle,
 
     val t1_bold: TextStyle,
@@ -67,6 +68,13 @@ data class SoptkathonTypography(
 )
 
 val defaultSoptkathonTypography = SoptkathonTypography(
+    h1_medium = soptkathonTextStyle(
+        fontFamily = SoptkathonFont.medium,
+        weight = FontWeight.Medium,
+        size = 48.sp,
+        lineHeight = 1.4.em,
+        letterSpacing = 0.em,
+    ),
     h1_bold = soptkathonTextStyle(
         fontFamily = SoptkathonFont.bold,
         weight = FontWeight.Bold,
@@ -145,6 +153,7 @@ val LocalSoptkathonTypography = staticCompositionLocalOf { defaultSoptkathonTypo
 @Composable
 private fun SoptkathonTypographyPreview() {
     val typography = listOf(
+        defaultSoptkathonTypography.h1_medium,
         defaultSoptkathonTypography.h1_bold,
         defaultSoptkathonTypography.t1_bold,
         defaultSoptkathonTypography.t2_bold,

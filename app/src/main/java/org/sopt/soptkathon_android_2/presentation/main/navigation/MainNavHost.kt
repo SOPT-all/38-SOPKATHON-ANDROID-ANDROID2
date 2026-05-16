@@ -84,6 +84,7 @@ fun MainNavHost(
         
         composable<Mission> {
             MissionRoute(
+                navigateToMissionDetail = navigator.navController::navigateToMissionDetail,
                 navigateToHome = navigator.navController::navigateToHome,
                 modifier = Modifier.padding(paddingValues),
             )

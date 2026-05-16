@@ -34,6 +34,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.sopt.soptkathon_android_2.R
 import org.sopt.soptkathon_android_2.core.designsystem.theme.SoptkathonTheme
+import org.sopt.soptkathon_android_2.core.util.noRippleClickable
 import org.sopt.soptkathon_android_2.presentation.main.bottombar.MainBottomBar
 import org.sopt.soptkathon_android_2.presentation.main.bottombar.MainTab
 
@@ -42,6 +43,7 @@ data class Mission(val title: String, val subtitle: String)
 @Composable
 fun MissionRoute(
     navigateToHome: () -> Unit,
+    navigateToMissionDetail: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MissionViewModel = viewModel(),
 ) {
@@ -49,6 +51,7 @@ fun MissionRoute(
 
     MissionScreen(
         uiState = uiState,
+        navigateToMissionDetail = navigateToMissionDetail,
         navigateToHome = navigateToHome,
         modifier = modifier,
     )
@@ -57,6 +60,7 @@ fun MissionRoute(
 @Composable
 private fun MissionScreen(
     uiState: MissionUiState,
+    navigateToMissionDetail: () -> Unit,
     navigateToHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -184,7 +188,10 @@ private fun MissionScreen(
                     color = SoptkathonTheme.colors.gray00,
                     style = SoptkathonTheme.typography.c1Medium,
                     modifier = Modifier
-                        .background(SoptkathonTheme.colors.gray500, shape = RoundedCornerShape(99.dp))
+                        .background(
+                            SoptkathonTheme.colors.gray500,
+                            shape = RoundedCornerShape(99.dp)
+                        )
                         .padding(horizontal = 38.dp, vertical = 11.5.dp)
                 )
 
@@ -208,7 +215,7 @@ private fun MissionScreen(
                     MissionItem(
                         title = mission.title,
                         subtitle = mission.subtitle,
-                        onClick = {}
+                        onClick = navigateToMissionDetail,
                     )
                 }
             }
@@ -226,7 +233,7 @@ fun MissionItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clickable { onClick() }
+            .noRippleClickable(onClick)
             .background(
                 color = SoptkathonTheme.colors.gray00,
                 shape = RoundedCornerShape(12.dp)
@@ -268,6 +275,7 @@ private fun MissionScreenPreview() {
     SoptkathonTheme {
         MissionScreen(
             uiState = MissionUiState(),
+            navigateToMissionDetail = {},
             navigateToHome = {},
         )
     }

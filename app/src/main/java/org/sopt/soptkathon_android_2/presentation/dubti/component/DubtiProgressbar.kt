@@ -46,7 +46,7 @@ fun Step(
                 if (active) SoptkathonTheme.colors.gray1000 else SoptkathonTheme.colors.gray50,
                 CircleShape
             )
-            .height(10.dp)
+            .height(4.dp)
     )
 }
 

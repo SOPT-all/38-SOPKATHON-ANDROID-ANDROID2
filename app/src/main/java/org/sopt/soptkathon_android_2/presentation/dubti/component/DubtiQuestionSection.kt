@@ -9,7 +9,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun DubtiQuestionSection(
-    question: String,
     aContent: String,
     bContent: String,
     onClick: (String) -> Unit,
@@ -17,12 +16,8 @@ fun DubtiQuestionSection(
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Text(
-            text = question,
-        )
-
         DubtiButton(
             answer = "A",
             content = aContent,

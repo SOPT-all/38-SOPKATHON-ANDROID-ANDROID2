@@ -47,7 +47,7 @@ fun MainNavHost(
 
         composable<Dubti> {
             DubtiRoute(
-                navigateToDoyeon = navigator.navController::navigateToDoyeon,
+                navigateToYerim = navigator.navController::navigateToYerim,
                 modifier = Modifier.padding(paddingValues),
             )
         }

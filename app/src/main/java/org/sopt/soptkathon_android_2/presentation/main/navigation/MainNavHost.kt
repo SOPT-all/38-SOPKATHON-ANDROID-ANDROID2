@@ -27,7 +27,7 @@ fun MainNavHost(
 ) {
     NavHost(
         navController = navigator.navController,
-        startDestination = Home,
+        startDestination = Splash,
         modifier = modifier.fillMaxSize(),
         enterTransition = { fadeIn(tween(160)) },
         exitTransition = { fadeOut(tween(160)) },

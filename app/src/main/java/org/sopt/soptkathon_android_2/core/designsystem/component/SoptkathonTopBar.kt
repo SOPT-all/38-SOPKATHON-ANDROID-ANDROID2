@@ -38,7 +38,7 @@ fun SoptkathonTopBar(
 
         if (title.isNotEmpty()) {
             Text(
-                text = "title",
+                text = title,
                 modifier = Modifier.align(Alignment.Center),
                 color = SoptkathonTheme.colors.gray1000,
                 style = SoptkathonTheme.typography.b2Medium,

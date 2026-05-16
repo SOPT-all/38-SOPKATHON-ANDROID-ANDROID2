@@ -28,7 +28,7 @@ fun DubtiProgressbar(
     ) {
         repeat(3) {
             Step(
-                active = it <= pageCount,
+                active = it < pageCount,
                 modifier = Modifier.weight(1f)
             )
         }

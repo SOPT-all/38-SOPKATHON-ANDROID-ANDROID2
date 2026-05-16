@@ -1,7 +1,10 @@
 package org.sopt.soptkathon_android_2.presentation.mission
 
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,7 +15,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -35,6 +37,8 @@ import org.sopt.soptkathon_android_2.core.designsystem.theme.SoptkathonTheme
 import org.sopt.soptkathon_android_2.presentation.main.bottombar.MainBottomBar
 import org.sopt.soptkathon_android_2.presentation.main.bottombar.MainTab
 
+data class Mission(val title: String, val subtitle: String)
+
 @Composable
 fun MissionRoute(
     navigateToHome: () -> Unit,
@@ -56,8 +60,6 @@ private fun MissionScreen(
     navigateToHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    data class Mission(val title: String, val subtitle: String)
-
     val missionList = listOf(
         Mission("하늘 사진 찍기", "중간 미션 · 예상 1분"),
         Mission("현관문 앞 30초 서 있기", "중간 미션 · 예상 1분"),
@@ -75,7 +77,7 @@ private fun MissionScreen(
         }
     ) { innerPadding ->
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
         ) {
@@ -85,12 +87,12 @@ private fun MissionScreen(
                 color = SoptkathonTheme.colors.gray1000,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 13.dp, bottom = 15.dp),
+                    .padding(top = 13.dp, bottom = 7.dp),
                 textAlign = TextAlign.Center
             )
 
             Box(
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp, vertical = 8.dp)
                     .background(
@@ -104,7 +106,7 @@ private fun MissionScreen(
                     contentDescription = null,
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
-                        .padding(top = 46.dp)
+                        .padding(top = 32.dp)
                 )
 
                 Column {
@@ -153,7 +155,7 @@ private fun MissionScreen(
                         Icon(
                             imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_chevron_right_44),
                             contentDescription = null,
-                            tint = SoptkathonTheme.colors.gray500
+                            tint = Color.Unspecified
                         )
                     }
                 }
@@ -165,7 +167,8 @@ private fun MissionScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp)
-                    .background(SoptkathonTheme.colors.gray50, shape = RoundedCornerShape(99)),
+                    .background(SoptkathonTheme.colors.gray50, shape = RoundedCornerShape(99.dp))
+                    .padding(vertical = 4.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -181,7 +184,7 @@ private fun MissionScreen(
                     color = SoptkathonTheme.colors.gray00,
                     style = SoptkathonTheme.typography.c1Medium,
                     modifier = Modifier
-                        .background(SoptkathonTheme.colors.gray500, shape = RoundedCornerShape(99))
+                        .background(SoptkathonTheme.colors.gray500, shape = RoundedCornerShape(99.dp))
                         .padding(horizontal = 38.dp, vertical = 11.5.dp)
                 )
 
@@ -201,7 +204,7 @@ private fun MissionScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp),
             ) {
-                items(missionList) { mission ->
+                items(items = missionList) { mission ->
                     MissionItem(
                         title = mission.title,
                         subtitle = mission.subtitle,
@@ -223,7 +226,16 @@ fun MissionItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(SoptkathonTheme.colors.gray00, shape = RoundedCornerShape(12.dp))
+            .clickable { onClick() }
+            .background(
+                color = SoptkathonTheme.colors.gray00,
+                shape = RoundedCornerShape(12.dp)
+            )
+            .border(
+                width = 1.dp,
+                color = SoptkathonTheme.colors.gray50,
+                shape = RoundedCornerShape(12.dp)
+            )
             .padding(top = 13.dp, bottom = 14.dp)
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -250,7 +262,7 @@ fun MissionItem(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, heightDp = 708, widthDp = 360)
 @Composable
 private fun MissionScreenPreview() {
     SoptkathonTheme {

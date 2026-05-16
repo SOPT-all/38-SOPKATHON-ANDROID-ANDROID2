@@ -31,7 +31,7 @@ class DubtiViewModel  : ViewModel() {
         _uiState.update { it.copy(answer3 = answer, isLoading = true) }
 
         viewModelScope.launch {
-            delay(2000)
+            delay(3000)
             _uiEffect.emit(DubtiUiEffect.NavigateToDoyeon)
         }
     }

@@ -7,8 +7,10 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("/api/v1/users/completed-missions")
-    suspend fun getHome(): BaseResponse<HomeResponseDto>
+    @GET("/api/v1/users/completed-missions/{userId}")
+    suspend fun getHome(
+        @Path("userId") userId: Int,
+    ): BaseResponse<HomeResponseDto>
 
     @POST("/api/v1/missions/{missionId}/complete")
     suspend fun postMission(

@@ -17,7 +17,7 @@ class HomeViewModel : ViewModel() {
     fun initScreen() {
         viewModelScope.launch {
             runCatching {
-                ServiceModule.apiService.getHome()
+                ServiceModule.apiService.getHome(1)
             }.onSuccess {response ->
                 val data = response.data ?: return@launch
                 _uiState.update { state ->

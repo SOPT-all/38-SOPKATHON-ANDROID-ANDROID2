@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import org.sopt.soptkathon_android_2.presentation.doyeon.DoyeonRoute
 import org.sopt.soptkathon_android_2.presentation.jiyoung.JiyoungRoute
+import org.sopt.soptkathon_android_2.presentation.splash.SplashScreen
 import org.sopt.soptkathon_android_2.presentation.yerim.YerimRoute
 
 @Composable
@@ -29,6 +30,12 @@ fun MainNavHost(
         popEnterTransition = { fadeIn(tween(160)) },
         popExitTransition = { fadeOut(tween(160)) },
     ) {
+        composable<Splash> {
+            SplashScreen(
+                navigateToOnboarding = {},
+            )
+        }
+
         composable<Doyeon> {
             DoyeonRoute(
                 navigateToJiyoung = navigator.navController::navigateToJiyoung,

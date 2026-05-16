@@ -113,4 +113,5 @@ PR Title만 작성합니다
 ## 안드로이드 팀원들의 사진
 | Before | After |
 | -- | -- |
-| <img width="200" alt="image" src="https://github.com/user-attachments/assets/c49dd0ac-fa08-49db-a050-3096dedb63f4" /> | - |
+| <img width="200" alt="image" src="https://github.com/user-attachments/assets/c49dd0ac-fa08-49db-a050-3096dedb63f4" /> | <img width="200"  alt="image" src="https://github.com/user-attachments/assets/1cf5a874-21ce-4c49-a8c5-347df868d19c" />
+ |

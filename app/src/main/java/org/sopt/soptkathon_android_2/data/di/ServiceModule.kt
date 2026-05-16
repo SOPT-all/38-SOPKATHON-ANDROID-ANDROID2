@@ -1,8 +1,8 @@
 package org.sopt.soptkathon_android_2.data.di
 
 import org.sopt.soptkathon_android_2.data.di.NetworkModule.instance
-import org.sopt.soptkathon_android_2.data.service.DummyService
+import org.sopt.soptkathon_android_2.data.service.ApiService
 
 object ServiceModule {
-    val dummyService: DummyService by lazy { instance.create(DummyService::class.java) }
+    val apiService: ApiService by lazy { instance.create(ApiService::class.java) }
 }

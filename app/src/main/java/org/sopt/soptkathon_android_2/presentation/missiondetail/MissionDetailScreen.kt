@@ -50,7 +50,10 @@ fun MissionDetailRoute(
         )
 
         else -> MissionSuccessScreen(
-            onClick = viewModel::onComplete,
+            onClick = {
+                viewModel.onComplete()
+                navigateToHome()
+            },
         )
     }
 }
@@ -215,10 +218,11 @@ private fun MissionSuccessScreen(
                 .height(4.dp)
                 .background(SoptkathonTheme.colors.gray00, CircleShape),
         ) {
-            Box(modifier = Modifier
-                .fillMaxWidth(fraction = 0.9f)
-                .height(4.dp)
-                .background(SoptkathonTheme.colors.gray500, CircleShape)
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(fraction = 0.9f)
+                    .height(4.dp)
+                    .background(SoptkathonTheme.colors.gray500, CircleShape)
             ) {}
         }
 
@@ -233,7 +237,7 @@ private fun MissionSuccessScreen(
         Spacer(Modifier.weight(31f))
 
         Text(
-            text= "두더지가\n10m 올라왔어요",
+            text = "두더지가\n10m 올라왔어요",
             color = SoptkathonTheme.colors.gray1000,
             style = SoptkathonTheme.typography.h1Bold.copy(fontSize = 26.sp),
             textAlign = TextAlign.Center,
@@ -242,7 +246,7 @@ private fun MissionSuccessScreen(
         Spacer(Modifier.height(8.dp))
 
         Text(
-            text= "미션을 할수록 흙 밖으로 더 올라와요!",
+            text = "미션을 할수록 흙 밖으로 더 올라와요!",
             color = Color(0xFF353535),
             style = SoptkathonTheme.typography.b1Medium,
             textAlign = TextAlign.Center,

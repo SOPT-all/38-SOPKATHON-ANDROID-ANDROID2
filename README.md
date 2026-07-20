@@ -22,9 +22,7 @@
 <br>
 
 ## 시연 영상
-<video src="https://github.com/user-attachments/assets/d4d989f2-3981-4c3f-975d-175bc973d911" />
-
-
+https://github.com/user-attachments/assets/d4d989f2-3981-4c3f-975d-175bc973d911
 
 <br>
 
